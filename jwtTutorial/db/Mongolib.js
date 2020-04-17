@@ -1,5 +1,7 @@
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
+const CryptoJS = require('crypto-js')
+let config = require('../config');
 
 const url = 'mongodb://localhost:27017';
 
@@ -26,6 +28,12 @@ const getUsers = function (db, callback) {
 
 const createUser = function (db, user, callback) {
     const collection = db.collection('users')
+
+    //Password encryption
+    var cipher = CryptoJS.AES.encrypt(user.password, config.secret);
+    user.password = cipher.toString();
+    console.log(user.password);
+
     collection.insertOne(user).then(callback(user))
 }
 
@@ -34,7 +42,15 @@ const deleteUser = function (username, db, callback) {
     collection.deleteOne({ "username": username }, callback(username))
 }
 
+const getUser = function (username, db, callback) {
+    const collection = db.collection('users')
+    collection.findOne({ "username": username }).then(docs => {
+        callback(docs)
+    })
+}
+
 exports.getDatabase = getDatabase;
 exports.getUsers = getUsers;
 exports.createUser = createUser;
 exports.deleteUser = deleteUser;
+exports.getUser = getUser;
