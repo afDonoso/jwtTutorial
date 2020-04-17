@@ -14,7 +14,7 @@
 <b>Ruta:</b> `localhost:3000/users`<br>
 
 ### Eliminar un usuario
-<b>Ruta:</b> 'localhost:3000/users/delete/:username`<br>
+<b>Ruta:</b> `localhost:3000/users/delete/:username`<br>
 
 ## Encriptación
 Para la encriptación, se utiliza el método AES y la misma llave que se creó en `config.js`.
