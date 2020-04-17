@@ -13,7 +13,7 @@
 ### Traer todos los usuarios
 <b>Ruta:</b> `localhost:3000/users`<br>
 
-###Eliminar un usuario
+### Eliminar un usuario
 <b>Ruta:</b> 'localhost:3000/users/delete/:username`<br>
 
 ## Encriptación
