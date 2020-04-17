@@ -13,6 +13,9 @@
 ### Traer todos los usuarios
 <b>Ruta:</b> `localhost:3000/users`<br>
 
-### Encriptación
+###Eliminar un usuario
+<b>Ruta:</b> 'localhost:3000/users/delete/:username`<br>
+
+## Encriptación
 Para la encriptación, se utiliza el método AES y la misma llave que se creó en `config.js`.
 Esta encriptación se hace del lado del servidor, por lo que la clave introducida por el cliente viaja en texto plano.
